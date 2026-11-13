@@ -2,6 +2,14 @@
 #include <string>
 using namespace std;
 
+void UserInput(float& CarMiles, float& Usage) {
+    cout << "How many miles do you drive in a month: ";
+    cin >> CarMiles;
+
+    cout << "How many hours do you use electricity in a month: ";
+    cin >> Usage;
+}
+
 float TotalEmissions(float CarMiles, float Usage) {
     float CarMiles2 = CarMiles * 0.25;
     float Usage2 = Usage * 0.20;
