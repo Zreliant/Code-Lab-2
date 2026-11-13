@@ -28,7 +28,15 @@ string TotalUsed(float Total) {
 }
 
 int main() {
+    float CarMiles;
+    float Usage;
 
+    UserInput(CarMiles, Usage);
+
+    float Total = TotalEmissions(CarMiles, Usage);
+
+    cout << "Your total emissions are: " << Total << " kg" << endl;
+    cout << "Your classification is: " << TotalUsed(Total) << endl;
 
     return 0;
 }
