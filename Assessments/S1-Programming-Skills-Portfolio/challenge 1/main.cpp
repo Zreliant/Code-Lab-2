@@ -2,6 +2,12 @@
 #include <string>
 using namespace std;
 
+float TotalEmissions(float CarMiles, float Usage) {
+    float CarMiles2 = CarMiles * 0.25;
+    float Usage2 = Usage * 0.20;
+    float Total = CarMiles2 + Usage2;
+    return Total; 
+
 int main() {
 
 
