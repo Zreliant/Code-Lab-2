@@ -30,6 +30,12 @@ public:
         cout << "\nExam: " << exam << endl;
     }
 
+    Student(string i, string n, double c, double e) {
+        id = i;
+        name = n;
+        coursework = c;
+        exam = e;
+    }
 };
 
 int main() {
