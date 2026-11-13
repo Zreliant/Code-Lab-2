@@ -33,6 +33,12 @@ int main() {
 
     ifstream file("resources/songs.txt");
 
+    // checks file opened
+    if (!file) {
+        cout << "Error opening songs.txt!" << endl;
+        return 1;
+    }
+
     // Reads file + updates vector
     while (getline(file, song)) {
         songs.push_back(song);
