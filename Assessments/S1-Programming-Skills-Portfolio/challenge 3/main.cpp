@@ -4,6 +4,7 @@
 #include <fstream>
 using namespace std;
 
+// class
 class Student {
 public:
     string id, name;
@@ -23,6 +24,7 @@ public:
         return "Fail";
     }
 
+    // displays information
     void display() const {
         cout << "\nID: " << id;
         cout << "\nName: " << name;
@@ -30,6 +32,7 @@ public:
         cout << "\nExam: " << exam << endl;
     }
 
+    // constructor
     Student(string i, string n, double c, double e) {
         id = i;
         name = n;
@@ -40,6 +43,7 @@ public:
 
 
 int main() {
+    // vector for students
     vector<Student> students;
 
     ifstream file("resources/studentMarks.txt");
@@ -47,6 +51,7 @@ int main() {
     string id, name;
     double coursework, exam;
 
+    // checks file opened
     if (!file) {
         cout << "Error opening studentMarks.txt!" << endl;
         return 1;
@@ -54,6 +59,7 @@ int main() {
 
 getline(file, id);
 
+// reads file and adds to vector
 while (getline(file, id, ',') &&
        getline(file, name, ',') &&
        file >> coursework) {
@@ -67,6 +73,7 @@ while (getline(file, id, ',') &&
 
     int choice;
 
+    // loops until choice 4
     do {
 
         cout << "\n----- Student Management System -----";
@@ -78,6 +85,7 @@ while (getline(file, id, ',') &&
 
         cin >> choice;
 
+        // choice 1 = view all students
         if (choice == 1) {
             if (students.empty()) {
                 cout << "No students found." << endl;
@@ -100,10 +108,12 @@ while (getline(file, id, ',') &&
                 if (s.id == id) {
                     found = true;
 
+                    // choice 2 = view individual student
                     if (choice == 2) {
                         s.display();
                     }
 
+                    // choice 3 = final mark + grade
                     else {
                         cout << "\nStudent: " << s.name;
                         cout << "\nFinal Mark: " << s.final();
@@ -112,15 +122,18 @@ while (getline(file, id, ',') &&
                 }
             }
 
+            // invalid student ID
             if (!found) {
                 cout << "Student not found." << endl;
             }
         }
 
+        // choice 4 = quit
         else if (choice == 4) {
             cout << "Goodbye!" << endl;
         }
 
+        // invalid choice
         else {
             cout << "Invalid choice." << endl;
         }
